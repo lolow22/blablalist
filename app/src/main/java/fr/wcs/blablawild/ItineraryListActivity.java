@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,10 +20,13 @@ public class ItineraryListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itinerary_list);
 
-        Intent appel = getIntent();
+        SearchModel objetcomplet = getIntent().getExtras().getParcelable("search");
+        /*Intent appel = getIntent();
         String depart = appel.getStringExtra("depart");
-        String destination = appel.getStringExtra("destination");
-        setTitle(depart + " >> " + destination);
+        String destination = appel.getStringExtra("destination");*/
+
+        setTitle(objetcomplet.departure + " >> " + objetcomplet.destination);
+        Toast.makeText(this, objetcomplet.date, Toast.LENGTH_SHORT).show();
 
         // [...]
 
